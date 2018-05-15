@@ -35,6 +35,7 @@ class BST {
 		void findMaxDepth(BSTNode *p, unsigned int* d);
 		BSTNode* removeHelper(BSTNode *p, int d);
 		BSTNode* successor(BSTNode *p);
+		BSTNode* foo(BSTNode* p); 
 		
 	public:
 		BST();
@@ -51,6 +52,8 @@ class BST {
 		void nodeCount();
 		void remove(int d);
 		void clear();
+		void printFoo();
+		
 };
 
 #endif

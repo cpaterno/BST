@@ -14,6 +14,7 @@ BSTNode::~BSTNode() {
 	// No dynamic memory
 }
 
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Tree constructor
@@ -86,7 +87,7 @@ void BST::inorder(BSTNode *p) {
 	// then visit node, then traverse as right as possible
 	// where the visited node's data is printed
 	inorder(p->left);
-	std::cout << p->data << std::endl;
+	std::cout << p->data << " ";
 	inorder(p->right);
 }
 
@@ -95,7 +96,7 @@ void BST::preorder(BSTNode *p) {
 	if (!p) return;
 	// preorder traversal: visit parents then children
 	// where the visited node's data is printed
-	std::cout << p->data << std::endl;
+	std::cout << p->data << " ";
 	preorder(p->left);
 	preorder(p->right);
 }
@@ -107,7 +108,7 @@ void BST::postorder(BSTNode *p) {
 	// where the visited node's data is printed
 	postorder(p->left);
 	postorder(p->right);
-	std::cout << p->data << std::endl;
+	std::cout << p->data << " ";
 }
 
 // sets the depth of each node through preorder traversal
@@ -212,16 +213,19 @@ unsigned int BST::BST_Height() {
 // prints the data of all nodes in the tree according to inorder traversion	
 void BST::printInorder() {
 	inorder(root);
+	std::cout << std::endl;
 }
 
 // prints the data of all nodes in the tree according to preorder traversion		
 void BST::printPreorder() {
 	preorder(root);
+	std::cout << std::endl;
 }
 
 // prints the data of all nodes in the tree according to postorder traversion
 void BST::printPostorder() {
 	postorder(root);
+	std::cout << std::endl;
 }
 
 // prints the number of nodes in the tree
@@ -239,4 +243,16 @@ void BST::clear() {
 	destroyAll(root);
 	root = NULL;
 	numNodes = 0;
+}
+
+BSTNode* BST::foo(BSTNode* p) {
+	if (p != NULL && p->left != NULL) {
+		return foo(p->left);
+	}
+	return p;		
+}
+
+void BST::printFoo() {
+	BSTNode* ouput = foo(root);
+	std::cout << ouput->data << std::endl;
 }
